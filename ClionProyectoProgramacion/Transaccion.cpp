@@ -51,11 +51,20 @@ Transaccion::Transaccion() {
     categoria= 'C';
 }
 
-Transaccion::Transaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio, string _categoria) {
+Transaccion::Transaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
     numtransaccion = _numtransaccion;
     monto = _monto;
     dia = _dia;
     mes = _mes;
     anio = _anio;
-    categoria= _categoria;
 }
+
+void Transaccion::imprimir_Transacciones() {
+    cout << "Numero de Transaccion: " << getnumtransaccion() << endl;
+    cout << "Monto: " << getmonto() << endl;
+    cout << "Tipo: " << getcategoria() << endl;
+    cout << "Dia: " << getdia() << endl;
+    cout << "Mes: " << getmes() << endl;
+    cout << "Anio: " << getanio() << endl;
+}
+

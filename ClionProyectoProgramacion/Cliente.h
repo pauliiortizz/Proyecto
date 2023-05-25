@@ -11,10 +11,10 @@ protected:
     int numcliente;
     string nombre;
     string apellido;
-    // string nivel
     int estado; //1 activo 0 de baja
     int antiguedad;
     int limite;
+    float saldo;
 public:
     Transaccion transacciones;
     void setnumcliente (int _numcliente);
@@ -29,9 +29,16 @@ public:
     int getantiguedad();
     void setlimite (int _limite);
     int getlimite ();
+    void setsaldo (float _saldo);
+    float getsaldo ();
+
+    //metodos especificos
+    void imprimircliente ();
+    void extraccion (int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
+    void deposito(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
 
     //Constructores
     Cliente ();
-    Cliente (int _numcliente, string _nombre, string _apellido, int _estado, int _antiguedad );
+    Cliente (int _numcliente, string _nombre, string _apellido, int _estado, int _antiguedad, float _saldo);
 };
 

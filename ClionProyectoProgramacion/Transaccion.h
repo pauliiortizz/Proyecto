@@ -28,8 +28,11 @@ public:
     void setcategoria(string _categoria);
     string getcategoria();
 
+    //Metodos
+    void imprimir_Transacciones();
+
     //Constructores
     Transaccion();
-    Transaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio, string _categoria);
+    Transaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
 };
 
