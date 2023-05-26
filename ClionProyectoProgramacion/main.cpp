@@ -80,75 +80,67 @@ void mostrarUNcliente(Cliente *clientes) {
     cout << endl;
 }
 
-void extraccion(Cliente *clientes, Transaccion *transacciones) {
+void extraccion(Cliente *clientes) {
     float cinmonto;
-    int cinnumtransaccion, cindia, cinmes, cinanio, i;
+    int cindia, cinmes, cinanio, i, j;
     cout << endl;
     cout << "Ingrese el numero de cliente al cual desea realizar la extraccion de dinero: ";
     cin >> i;
     cout << "Monto a extraer: ";
     cin >> cinmonto;
-    cout << "Num transaccion ";
-    cin >> cinnumtransaccion;
     cout << "Dia: ";
     cin >> cindia;
     cout << "Mes: ";
     cin >> cinmes;
     cout << "Anio: ";
     cin >> cinanio;
-    for (i = 0; i < 100; i++) {
-        clientes[i].deposito(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
-        for (int j = 0; j < 100; j++) {
-            if (transacciones[j].getanio() != -1) {
-                transacciones[j] = Transaccion(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
+    /*for (i = 0; i < 100; i++) {
+        clientes[i].extraccion(j, cinmonto, cindia, cinmes, cinanio);
+        for ( j = 0; j < 100; j++) {
+            if (clientes[i].transacciones[j].getanio() != -1) {
+                clientes[i].transacciones[j] = Transaccion(j, cinmonto, cindia, cinmes, cinanio);
             }
             break;
         }
         break;
+    }*/
+    for  (j = 0; j < 100 ; j++) {
+        clientes[i].extraccion(j, cinmonto, cindia, cinmes, cinanio);
     }
     cout << endl;
 }
 
-void depositar(Cliente *clientes, Transaccion *transacciones) {
+void depositar(Cliente *clientes) {
     float cinmonto;
-    int cinnumtransaccion, cindia, cinmes, cinanio, i;
+    int cinnumtransaccion, cindia, cinmes, cinanio, i, j;
     cout << endl;
     cout << "Ingrese el numero de cliente al cual desea realizar el deposito de dinero: ";
     cin >> i;
     cout << "Monto a depositar: ";
     cin >> cinmonto;
-    cout << "Num transaccion ";
-    cin >> cinnumtransaccion;
     cout << "Dia: ";
     cin >> cindia;
     cout << "Mes: ";
     cin >> cinmes;
     cout << "Anio: ";
     cin >> cinanio;
-    for (i = 0; i < 100; i++) {
-        clientes[i].deposito(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
-        for (int j = 0; j < 100; j++) {
-            if (transacciones[j].getanio() != -1) {
-                transacciones[j] = Transaccion(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
-            }
-            break;
-        }
-        break;
+    for (j = 0; j < 100 ; j++) {
+        clientes[i].deposito(j, cinmonto, cindia, cinmes, cinanio);
     }
     cout << endl;
 }
 
-void mostrartransacciones(Cliente *clientes, Transaccion *transacciones) {
+void mostrartransacciones(Cliente *clientes) {
     float cinmonto;
-    int cinnumtransaccion, cindia, cinmes, cinanio, i;
+    int cinnumtransaccion, cindia, cinmes, cinanio, i, j;
     cout << "Ingrese el numero de cliente del cual desea ver sus transacciones: ";
     cin >> i;
     for (i = 0; i < 100; i++) {
         clientes[i].deposito(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
         clientes[i].extraccion(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
-        for (int j = 0; j < 100; j++) {
-            if (transacciones[j].getanio() != -1) {
-                transacciones[j].imprimirtransacciones();
+        for ( j = 0; j < 100; j++) {
+            if (clientes[i].transacciones[j].getanio() != -1) {
+                clientes[i].transacciones[j].imprimirtransacciones();
             }
             cout << endl;
             break;
@@ -163,7 +155,6 @@ int main() {
     int opc;
 
     Cliente clientes[100];
-    Transaccion transacciones[100];
     clientes[0] = Cliente(0, "juan", "perez", 1, 1980, 40);
     Transaccion t3(1, 100, 1, 1, 2001);
 
@@ -191,11 +182,11 @@ int main() {
                 break;
             case 3:
                 cout << "EXTRACCION DE DINERO" << endl;
-                extraccion(clientes, transacciones);
+                extraccion(clientes);
                 break;
             case 4:
                 cout << "DEPOSITAR DINERO " << endl;
-                depositar(clientes, transacciones);
+                depositar(clientes);
                 break;
             case 5:
                 cout << "CONSULTAR CLIENTE" << endl;
@@ -207,7 +198,7 @@ int main() {
                 break;
             case 7:
                 cout << "TRANSACCIONES DE UN CLIENTE" << endl;
-                mostrartransacciones(clientes, transacciones);
+                mostrartransacciones(clientes);
                 break;
             case 8:
                 cout << "El programa se cerrara" << endl;

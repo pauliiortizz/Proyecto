@@ -3,4 +3,4 @@ project(ClionProyectoProgramacion)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ClionProyectoProgramacion main.cpp Cliente.h Cliente.cpp Transaccion.cpp Transaccion.h)
+add_executable(ClionProyectoProgramacion main.cpp Cliente.h Cliente.cpp Transaccion.cpp Transaccion.h black.h black.cpp oro.h oro.cpp plata.h plata.cpp)

@@ -67,6 +67,24 @@ build CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj: CXX_COMPILER
   OBJECT_DIR = CMakeFiles\ClionProyectoProgramacion.dir
   OBJECT_FILE_DIR = CMakeFiles\ClionProyectoProgramacion.dir
 
+build CMakeFiles/ClionProyectoProgramacion.dir/black.cpp.obj: CXX_COMPILER__ClionProyectoProgramacion_Debug C$:/Users/BANGHO/Proyecto/ClionProyectoProgramacion/black.cpp || cmake_object_order_depends_target_ClionProyectoProgramacion
+  DEP_FILE = CMakeFiles\ClionProyectoProgramacion.dir\black.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ClionProyectoProgramacion.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClionProyectoProgramacion.dir
+
+build CMakeFiles/ClionProyectoProgramacion.dir/oro.cpp.obj: CXX_COMPILER__ClionProyectoProgramacion_Debug C$:/Users/BANGHO/Proyecto/ClionProyectoProgramacion/oro.cpp || cmake_object_order_depends_target_ClionProyectoProgramacion
+  DEP_FILE = CMakeFiles\ClionProyectoProgramacion.dir\oro.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ClionProyectoProgramacion.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClionProyectoProgramacion.dir
+
+build CMakeFiles/ClionProyectoProgramacion.dir/plata.cpp.obj: CXX_COMPILER__ClionProyectoProgramacion_Debug C$:/Users/BANGHO/Proyecto/ClionProyectoProgramacion/plata.cpp || cmake_object_order_depends_target_ClionProyectoProgramacion
+  DEP_FILE = CMakeFiles\ClionProyectoProgramacion.dir\plata.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ClionProyectoProgramacion.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClionProyectoProgramacion.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ClionProyectoProgramacion
@@ -75,7 +93,7 @@ build CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj: CXX_COMPILER
 #############################################
 # Link the executable ClionProyectoProgramacion.exe
 
-build ClionProyectoProgramacion.exe: CXX_EXECUTABLE_LINKER__ClionProyectoProgramacion_Debug CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj
+build ClionProyectoProgramacion.exe: CXX_EXECUTABLE_LINKER__ClionProyectoProgramacion_Debug CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj CMakeFiles/ClionProyectoProgramacion.dir/black.cpp.obj CMakeFiles/ClionProyectoProgramacion.dir/oro.cpp.obj CMakeFiles/ClionProyectoProgramacion.dir/plata.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ClionProyectoProgramacion.dir

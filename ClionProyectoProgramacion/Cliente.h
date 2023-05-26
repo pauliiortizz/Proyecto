@@ -18,7 +18,7 @@ protected:
     int limite;
     float saldo;
 public:
-    Transaccion transacciones;
+    Transaccion transacciones[100];
     void setnumcliente(int _numcliente);
     int getnumcliente();
     void setnombre(string _nombre);
@@ -38,10 +38,11 @@ public:
     void imprimircliente();
     void extraccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
     void deposito(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
-    void imprimirtransaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
 
     //Constructores
     Cliente();
     Cliente(int _numcliente, string _nombre, string _apellido, int _estado, int _antiguedad, float _saldo);
 };
+
+
 

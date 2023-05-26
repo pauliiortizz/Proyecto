@@ -76,8 +76,7 @@ Cliente::Cliente() {
     Transaccion();
 }
 
-Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad,
-                 float _saldo) {
+Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad, float _saldo) {
     numcliente = _numcliente;
     nombre = _nombre;
     apellido = _apellido;
@@ -87,28 +86,38 @@ Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, in
 }
 
 void Cliente::extraccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
-    Transaccion t1(_numtransaccion, _monto, _dia, _mes, _anio);
-    t1.setcategoria("E");
-    while (t1.getmonto() > getsaldo()) {
-        cout << "No cuenta con ese monto de dinero en su cuenta, ingrese otro monto" << endl;
-        cout << "Su saldo actual es: " << saldo;
+    int i;
+    for (i=0; i<100; i++){
+        if (transacciones[i].getanio()==-1) {
+            transacciones[i] = Transaccion(i, _monto, _dia, _mes, _anio);
+            transacciones[i].setcategoria("E");
+            while (transacciones[i].getmonto() > getsaldo()) {
+                cout << "No cuenta con ese monto de dinero en su cuenta, ingrese otro monto" << endl;
+                cout << "Su saldo actual es: " << saldo;
+                break;
+            }
+            if (transacciones[i].getmonto() <= getsaldo()) {
+                setsaldo(getsaldo() - transacciones[i].getmonto());
+                cout << "Su saldo actual es: " << saldo;
+            }
+        }
         break;
     }
-    if (t1.getmonto() <= getsaldo()) {
-        setsaldo(getsaldo() - t1.getmonto());
-        cout << "Su saldo actual es: " << saldo;
-    }
+
 }
 
 void Cliente::deposito(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
-    Transaccion t1(_numtransaccion, _monto, _dia, _mes, _anio);
-    t1.setcategoria("D");
-    while (t1.getmonto() <= 0) {
+    int i;
+    for(i=0; i<100; i++){
+        transacciones[i]=Transaccion (_numtransaccion, _monto, _dia, _mes, _anio);
+    }
+    transacciones[i].setcategoria("D");
+    while (transacciones[i].getmonto() <= 0) {
         cout << "Ingrese un monto valido para depositar" << endl;
         cout << "Su saldo actual es: " << saldo;
     }
-    if (t1.getmonto() >= getsaldo()) {
-        setsaldo(getsaldo() + t1.getmonto());
+    if (transacciones[i].getmonto() >= getsaldo()) {
+        setsaldo(getsaldo() + transacciones[i].getmonto());
         cout << "Su saldo actual es: " << saldo;
     }
 }
@@ -126,6 +135,4 @@ void Cliente::imprimircliente() {
     cout << "SALDO:" << saldo << endl;
 }
 
-void Cliente::imprimirtransaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
-    Transaccion t2(_numtransaccion, _monto, _dia, _mes, _anio);
-}
+
