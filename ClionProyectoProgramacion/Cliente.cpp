@@ -2,11 +2,15 @@
 // Created by sofis on 5/21/2023.
 //
 #include <iostream>
+
 using namespace std;
+
 #include "Cliente.h"
 
+#pragma once
+
 void Cliente::setnumcliente(int _numcliente) {
-    numcliente=_numcliente;
+    numcliente = _numcliente;
 }
 
 int Cliente::getnumcliente() {
@@ -14,7 +18,7 @@ int Cliente::getnumcliente() {
 }
 
 void Cliente::setnombre(std::string _nombre) {
-    nombre=_nombre;
+    nombre = _nombre;
 }
 
 string Cliente::getnombre() {
@@ -22,7 +26,7 @@ string Cliente::getnombre() {
 }
 
 void Cliente::setapellido(string _apellido) {
-    apellido=_apellido;
+    apellido = _apellido;
 }
 
 string Cliente::getapellido() {
@@ -30,7 +34,7 @@ string Cliente::getapellido() {
 }
 
 void Cliente::setestado(int _estado) {
-    estado=_estado;
+    estado = _estado;
 }
 
 int Cliente::getestado() {
@@ -38,15 +42,15 @@ int Cliente::getestado() {
 }
 
 void Cliente::setantiguedad(int _antiguedad) {
-    antiguedad=_antiguedad;
+    antiguedad = _antiguedad;
 }
 
-int Cliente::getantiguedad(){
+int Cliente::getantiguedad() {
     return antiguedad;
 }
 
-void Cliente::setlimite(int _limite){
-    limite=_limite;
+void Cliente::setlimite(int _limite) {
+    limite = _limite;
 }
 
 int Cliente::getlimite() {
@@ -54,7 +58,7 @@ int Cliente::getlimite() {
 }
 
 void Cliente::setsaldo(float _saldo) {
-    saldo=_saldo;
+    saldo = _saldo;
 }
 
 float Cliente::getsaldo() {
@@ -62,58 +66,66 @@ float Cliente::getsaldo() {
 }
 
 Cliente::Cliente() {
-    numcliente=0;
-    nombre="";
-    apellido="";
-    estado=0;
-    antiguedad=-1;
-    limite=0;
-    saldo=0;
+    numcliente = 0;
+    nombre = "";
+    apellido = "";
+    estado = 0;
+    antiguedad = -1;
+    limite = 0;
+    saldo = 0;
     Transaccion();
 }
 
-Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad, float _saldo){
-    numcliente=_numcliente;
-    nombre=_nombre;
-    apellido=_apellido;
-    estado=_estado;
-    antiguedad=_antiguedad;
-    saldo=_saldo;
+Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad,
+                 float _saldo) {
+    numcliente = _numcliente;
+    nombre = _nombre;
+    apellido = _apellido;
+    estado = _estado;
+    antiguedad = _antiguedad;
+    saldo = _saldo;
 }
 
 void Cliente::extraccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
-    Transaccion t1(_numtransaccion,_monto,_dia,_mes,_anio);
+    Transaccion t1(_numtransaccion, _monto, _dia, _mes, _anio);
     t1.setcategoria("E");
-    while (t1.getmonto()>getsaldo()) {
+    while (t1.getmonto() > getsaldo()) {
         cout << "No cuenta con ese monto de dinero en su cuenta, ingrese otro monto" << endl;
         cout << "Su saldo actual es: " << saldo;
         break;
     }
-    if (t1.getmonto()<=getsaldo()){
-        setsaldo(getsaldo()-t1.getmonto());
+    if (t1.getmonto() <= getsaldo()) {
+        setsaldo(getsaldo() - t1.getmonto());
         cout << "Su saldo actual es: " << saldo;
     }
 }
 
 void Cliente::deposito(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
-    Transaccion t1(_numtransaccion,_monto,_dia,_mes,_anio);
+    Transaccion t1(_numtransaccion, _monto, _dia, _mes, _anio);
     t1.setcategoria("D");
-    while (t1.getmonto()<=0) {
+    while (t1.getmonto() <= 0) {
         cout << "Ingrese un monto valido para depositar" << endl;
         cout << "Su saldo actual es: " << saldo;
     }
-    setsaldo(getsaldo()+t1.getmonto());
+    if (t1.getmonto() >= getsaldo()) {
+        setsaldo(getsaldo() + t1.getmonto());
+        cout << "Su saldo actual es: " << saldo;
+    }
 }
 
 void Cliente::imprimircliente() {
-    cout <<"Numero de cliente:"<< numcliente << endl;
-    cout <<"NOMBRE:"<<  nombre << endl;
-    cout <<"APELLIDO:"<< apellido << endl;
-    if (estado==1){
-        cout <<"ESTADO: Activo"<< endl;
-    } else if (estado==0){
-        cout <<"ESTADO: Inactivo"<< endl;
+    cout << "Numero de cliente:" << numcliente << endl;
+    cout << "NOMBRE:" << nombre << endl;
+    cout << "APELLIDO:" << apellido << endl;
+    if (estado == 1) {
+        cout << "ESTADO: Activo" << endl;
+    } else if (estado == 0) {
+        cout << "ESTADO: Inactivo" << endl;
     }
-    cout <<"ANTIGUEDAD:"<< antiguedad << endl;
-    cout <<"SALDO:"<< saldo<<endl;
+    cout << "ANTIGUEDAD:" << antiguedad << endl;
+    cout << "SALDO:" << saldo << endl;
+}
+
+void Cliente::imprimirtransaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
+    Transaccion t2(_numtransaccion, _monto, _dia, _mes, _anio);
 }

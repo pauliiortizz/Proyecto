@@ -3,6 +3,8 @@
 //
 #include <iostream>
 #include "Transaccion.h"
+
+#pragma once
 using namespace std;
 
 class Cliente {
@@ -17,7 +19,7 @@ protected:
     float saldo;
 public:
     Transaccion transacciones;
-    void setnumcliente (int _numcliente);
+    void setnumcliente(int _numcliente);
     int getnumcliente();
     void setnombre(string _nombre);
     string getnombre();
@@ -27,18 +29,19 @@ public:
     int getestado();
     void setantiguedad(int _antiguedad);
     int getantiguedad();
-    void setlimite (int _limite);
-    int getlimite ();
-    void setsaldo (float _saldo);
-    float getsaldo ();
+    void setlimite(int _limite);
+    int getlimite();
+    void setsaldo(float _saldo);
+    float getsaldo();
 
     //metodos especificos
-    void imprimircliente ();
-    void extraccion (int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
+    void imprimircliente();
+    void extraccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
     void deposito(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
+    void imprimirtransaccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio);
 
     //Constructores
-    Cliente ();
-    Cliente (int _numcliente, string _nombre, string _apellido, int _estado, int _antiguedad, float _saldo);
+    Cliente();
+    Cliente(int _numcliente, string _nombre, string _apellido, int _estado, int _antiguedad, float _saldo);
 };
 

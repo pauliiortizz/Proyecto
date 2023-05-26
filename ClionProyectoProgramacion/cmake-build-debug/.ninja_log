@@ -1,0 +1,27 @@
+# ninja log v5
+11	425	7067642774557334	CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj	da5aae2c8ddaa02e
+7	440	7067642774741619	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
+1	448	7067642774811408	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+448	668	7067642776957297	ClionProyectoProgramacion.exe	406a5466b87892fd
+4	729	7068301222877796	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+730	887	7068301224404954	ClionProyectoProgramacion.exe	406a5466b87892fd
+6	1557	7068304332521941	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+1561	1938	7068304336479043	ClionProyectoProgramacion.exe	406a5466b87892fd
+9	751	7068321369225462	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
+9	552	7068323398608667	CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj	da5aae2c8ddaa02e
+14	582	7068323398912387	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
+4	604	7068323399133826	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+605	825	7068323401260067	ClionProyectoProgramacion.exe	406a5466b87892fd
+4	2274	7068333784439648	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+4	457	7068334778918541	CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj	da5aae2c8ddaa02e
+457	588	7068334780186251	ClionProyectoProgramacion.exe	406a5466b87892fd
+9	883	7068350326464758	CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj	da5aae2c8ddaa02e
+15	929	7068350326946290	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
+4	962	7068350327260570	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+962	1116	7068350328746679	ClionProyectoProgramacion.exe	406a5466b87892fd
+3	562	7068351821184865	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+563	686	7068351822383912	ClionProyectoProgramacion.exe	406a5466b87892fd
+9	418	7068358383797191	CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj	da5aae2c8ddaa02e
+15	439	7068358384012417	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
+4	475	7068358384380611	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
+475	719	7068358386763979	ClionProyectoProgramacion.exe	406a5466b87892fd
