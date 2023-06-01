@@ -1,22 +1,7 @@
 # ninja log v5
 9	418	7068358383797191	CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj	da5aae2c8ddaa02e
-15	439	7068358384012417	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
-4	475	7068358384380611	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
-475	719	7068358386763979	ClionProyectoProgramacion.exe	406a5466b87892fd
-24	603	7068438917013313	CMakeFiles/ClionProyectoProgramacion.dir/black.cpp.obj	2e17409c86a22cfd
-19	615	7068438917135386	CMakeFiles/ClionProyectoProgramacion.dir/plata.cpp.obj	3e20791277407bb3
-32	628	7068438917286021	CMakeFiles/ClionProyectoProgramacion.dir/oro.cpp.obj	54527e80d42ef26e
-12	656	7068438917539688	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
-6	685	7068438917858806	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
-685	817	7068438919102333	ClionProyectoProgramacion.exe	b3f72eebf34438f2
-29	1255	7068461263825948	CMakeFiles/ClionProyectoProgramacion.dir/plata.cpp.obj	3e20791277407bb3
-18	1256	7068461263864098	CMakeFiles/ClionProyectoProgramacion.dir/oro.cpp.obj	54527e80d42ef26e
-37	1307	7068461264008630	CMakeFiles/ClionProyectoProgramacion.dir/black.cpp.obj	2e17409c86a22cfd
-3	1376	7068461264492884	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
-11	1387	7068461264519157	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
-1387	1681	7068461268154728	ClionProyectoProgramacion.exe	b3f72eebf34438f2
-19	2020	7068464492070699	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
-7	2023	7068464492104013	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
-2024	2542	7068464497242155	ClionProyectoProgramacion.exe	b3f72eebf34438f2
 3	953	7068465875664522	CMakeFiles/ClionProyectoProgramacion.dir/Cliente.cpp.obj	911670b0a850cb5d
+7	2023	7068464492104013	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529
 954	1096	7068465877026442	ClionProyectoProgramacion.exe	b3f72eebf34438f2
+13	413	7073341916076875	CMakeFiles/ClionProyectoProgramacion.dir/Transaccion.cpp.obj	da5aae2c8ddaa02e
+4	449	7073341916447088	CMakeFiles/ClionProyectoProgramacion.dir/main.cpp.obj	5fa42c77f0b7a529

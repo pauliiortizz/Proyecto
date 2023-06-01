@@ -55,7 +55,6 @@ void cargarcliente(Cliente *clientes) {
                 cin >> cmembresia;
             }
             cout << "ANTIGUEDAD (ingrese el anio en el que creo la cuenta): ";
-            cout << "ANTIGUEDAD (Anio en el que creo la cuenta): ";
             cin >> cantiguedad;
             while (cantiguedad <= 1900 || cantiguedad > 2023) {
                 cout << "Ingrese un anio valido!!" << endl << "ANTIGUEDAD: ";

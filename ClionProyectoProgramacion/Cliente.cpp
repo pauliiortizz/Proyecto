@@ -135,7 +135,14 @@ void Cliente::imprimircliente() {
     cout << "APELLIDO:" << apellido << endl;
     if (estado == 1) {
         cout << "ESTADO: Activo" << endl;
-        cout << "MEMBRESIA: " << membresia << endl
+        cout << "MEMBRESIA: " << membresia << endl;
+        if (membresia=="black"|| membresia=="BLACK" || membresia=="Black"){
+        cout << "el cliente tiene una tarjeta BLACK"<< endl << "el limite mensual de su tarjeta es de: $250.000"<<endl;
+        } else if (membresia=="oro"|| membresia=="ORO" || membresia=="Oro"){
+            cout << "el cliente tiene una tarjeta ORO"<< endl << "el limite mensual de su tarjeta es de: $50.000"<<endl;
+        } else if (membresia=="plata"|| membresia=="PLATA" || membresia=="Plata"){
+            cout << "el cliente tiene una tarjeta PLATA"<< endl << "el limite mensual de su tarjeta es de: $25.000"<<endl;
+        }
     } else if (estado == 0) {
         cout << "ESTADO: Inactivo" << endl;
         cout << "MEMBRESIA: " << membresia << endl;
