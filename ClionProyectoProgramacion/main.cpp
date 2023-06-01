@@ -17,22 +17,22 @@ void cargarcliente(Cliente *clientes) {
             cin >> cnombre;
             cout << "APELLIDO: ";
             cin >> capellido;
-            cout << "ESTADO (ingrese 1 para activo, 0 para inactivo): ";
+            cout << "ESTADO (1 para activo, 0 para inactivo): ";
             cin >> cestado;
             while (cestado != 0 && cestado != 1) {
-                cout << "Ingrese un estado valido: 1 para activo, 0 para inactivo" << endl << "ESTADO: ";
+                cout << "Ingrese un estado valido!! 1 para activo, 0 para inactivo" << endl << "ESTADO: ";
                 cin >> cestado;
             }
-            cout << "ANTIGUEDAD (ingrese el anio en el que creo la cuenta): ";
+            cout << "ANTIGUEDAD (Anio en el que creo la cuenta): ";
             cin >> cantiguedad;
             while (cantiguedad <= 1900 || cantiguedad > 2023) {
-                cout << "ingrese un anio valido" << endl << "ANTIGUEDAD: ";
+                cout << "Ingrese un anio valido!!" << endl << "ANTIGUEDAD: ";
                 cin >> cantiguedad;
             }
-            cout << "SALDO (ingrese el saldo de la cuenta):  ";
+            cout << "SALDO: ";
             cin >> csaldo;
             while (csaldo < 0) {
-                cout << "ingrese un saldo positivo" << endl << "SALDO: ";
+                cout << "Ingrese un saldo positivo!!" << endl << "SALDO: ";
                 cin >> csaldo;
             }
             clientes[i] = Cliente(cnumcliente, cnombre, capellido, cestado, cantiguedad, csaldo);
@@ -74,7 +74,7 @@ void mostrarclientes(Cliente *clientes) {
 
 void mostrarUNcliente(Cliente *clientes) {
     int i;
-    cout << "Ingrese el numero del cliente que quiere ver: ";
+    cout << "Ingrese el numero del cliente que quiere consultar: ";
     cin >> i;
     clientes[i].imprimircliente();
     cout << endl;
@@ -112,7 +112,7 @@ void extraccion(Cliente *clientes) {
 
 void depositar(Cliente *clientes) {
     float cinmonto;
-    int cinnumtransaccion, cindia, cinmes, cinanio, i, j;
+    int cindia, cinmes, cinanio, i, j;
     cout << endl;
     cout << "Ingrese el numero de cliente al cual desea realizar el deposito de dinero: ";
     cin >> i;
@@ -203,6 +203,8 @@ int main() {
             case 8:
                 cout << "El programa se cerrara" << endl;
                 return 0;
+            default:
+                cout << "Ingrese una opcion valida" << endl;
         }
     }
 }
