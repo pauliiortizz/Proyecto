@@ -42,10 +42,10 @@ void cargarcliente(Cliente *clientes) {
             cin >> cnombre;
             cout << "APELLIDO: ";
             cin >> capellido;
-            cout << "ESTADO (ingrese 1 para activo, 0 para inactivo): ";
+            cout << "ESTADO (1 para activo, 0 para inactivo): ";
             cin >> cestado;
             while (cestado != 0 && cestado != 1) {
-                cout << "Ingrese un estado valido: 1 para activo, 0 para inactivo" << endl << "ESTADO: ";
+                cout << "Ingrese un estado valido!! 1 para activo, 0 para inactivo" << endl << "ESTADO: ";
                 cin >> cestado;
             }
             cout << "MEMBRESIA (ingrese si el cliente es 'BLACK', 'ORO', 'PLATA'): ";
@@ -55,15 +55,16 @@ void cargarcliente(Cliente *clientes) {
                 cin >> cmembresia;
             }
             cout << "ANTIGUEDAD (ingrese el anio en el que creo la cuenta): ";
+            cout << "ANTIGUEDAD (Anio en el que creo la cuenta): ";
             cin >> cantiguedad;
             while (cantiguedad <= 1900 || cantiguedad > 2023) {
-                cout << "ingrese un anio valido" << endl << "ANTIGUEDAD: ";
+                cout << "Ingrese un anio valido!!" << endl << "ANTIGUEDAD: ";
                 cin >> cantiguedad;
             }
-            cout << "SALDO (ingrese el saldo de la cuenta):  ";
+            cout << "SALDO: ";
             cin >> csaldo;
             while (csaldo < 0) {
-                cout << "ingrese un saldo positivo" << endl << "SALDO: ";
+                cout << "Ingrese un saldo positivo!!" << endl << "SALDO: ";
                 cin >> csaldo;
             }
             clientes[i] = Cliente(cnumcliente, cnombre, capellido, cestado, cantiguedad, csaldo, cmembresia);
@@ -105,7 +106,7 @@ void mostrarclientes(Cliente *clientes) {
 
 void mostrarUNcliente(Cliente *clientes) {
     int i;
-    cout << "Ingrese el numero del cliente que quiere ver: ";
+    cout << "Ingrese el numero del cliente que quiere consultar: ";
     cin >> i;
     while(clientes[i].getantiguedad()==-1 || i>=100 || i<0){
         cout<< "el cliente ingresado no existe"<<endl<< "ingrese el numero de cliente que quiere ver: ";
@@ -258,6 +259,8 @@ int main() {
             case 8:
                 cout << "El programa se cerrara" << endl;
                 return 0;
+            default:
+                cout << "Ingrese una opcion valida" << endl;
         }
     }
 }
