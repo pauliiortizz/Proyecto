@@ -4,9 +4,7 @@
 #include <iostream>
 
 using namespace std;
-
 #include "Cliente.h"
-
 #pragma once
 
 void Cliente::setnumcliente(int _numcliente) {
@@ -65,6 +63,14 @@ float Cliente::getsaldo() {
     return saldo;
 }
 
+void Cliente::setmembresia (string _membresia){
+    membresia = _membresia;
+}
+
+string Cliente::getmembresia(){
+    return membresia;
+}
+
 Cliente::Cliente() {
     numcliente = 0;
     nombre = "";
@@ -76,13 +82,14 @@ Cliente::Cliente() {
     Transaccion();
 }
 
-Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad, float _saldo) {
+Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad, float _saldo, std::string _membresia) {
     numcliente = _numcliente;
     nombre = _nombre;
     apellido = _apellido;
     estado = _estado;
     antiguedad = _antiguedad;
     saldo = _saldo;
+    membresia= _membresia;
 }
 
 void Cliente::extraccion(int _numtransaccion, float _monto, int _dia, int _mes, int _anio) {
@@ -128,11 +135,11 @@ void Cliente::imprimircliente() {
     cout << "APELLIDO:" << apellido << endl;
     if (estado == 1) {
         cout << "ESTADO: Activo" << endl;
+        cout << "MEMBRESIA: " << membresia << endl
     } else if (estado == 0) {
         cout << "ESTADO: Inactivo" << endl;
+        cout << "MEMBRESIA: " << membresia << endl;
     }
     cout << "ANTIGUEDAD:" << antiguedad << endl;
     cout << "SALDO:" << saldo << endl;
 }
-
-

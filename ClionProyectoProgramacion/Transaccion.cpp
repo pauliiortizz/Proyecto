@@ -4,9 +4,7 @@
 #include <iostream>
 
 using namespace std;
-
 #include "Transaccion.h"
-
 #pragma once
 
 void Transaccion::setnumtransaccion(int _numtransaccion) {
@@ -82,4 +80,3 @@ void Transaccion::imprimirtransacciones() {
     cout << "Mes: " << mes << endl;
     cout << "Anio: " << anio << endl;
 }
-

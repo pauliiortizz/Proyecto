@@ -17,6 +17,7 @@ protected:
     int antiguedad;
     int limite;
     float saldo;
+    string membresia;
 public:
     Transaccion transacciones[100];
     void setnumcliente(int _numcliente);
@@ -33,6 +34,8 @@ public:
     int getlimite();
     void setsaldo(float _saldo);
     float getsaldo();
+    void setmembresia (string _membresia);
+    string getmembresia();
 
     //metodos especificos
     void imprimircliente();
@@ -41,8 +44,5 @@ public:
 
     //Constructores
     Cliente();
-    Cliente(int _numcliente, string _nombre, string _apellido, int _estado, int _antiguedad, float _saldo);
+    Cliente(int _numcliente, string _nombre, string _apellido, int _estado, int _antiguedad, float _saldo, string _membresia);
 };
-
-
-
