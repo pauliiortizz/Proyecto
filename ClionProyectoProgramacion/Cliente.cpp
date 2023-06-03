@@ -63,11 +63,11 @@ float Cliente::getsaldo() {
     return saldo;
 }
 
-void Cliente::setmembresia (string _membresia){
+void Cliente::setmembresia (int _membresia){
     membresia = _membresia;
 }
 
-string Cliente::getmembresia(){
+int Cliente::getmembresia(){
     return membresia;
 }
 
@@ -82,7 +82,7 @@ Cliente::Cliente() {
     Transaccion();
 }
 
-Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad, float _saldo, std::string _membresia) {
+Cliente::Cliente(int _numcliente, std::string _nombre, std::string _apellido, int _estado, int _antiguedad, float _saldo, int _membresia) {
     numcliente = _numcliente;
     nombre = _nombre;
     apellido = _apellido;
@@ -136,11 +136,11 @@ void Cliente::imprimircliente() {
     if (estado == 1) {
         cout << "ESTADO: Activo" << endl;
         cout << "MEMBRESIA: " << membresia << endl;
-        if (membresia=="black"|| membresia=="BLACK" || membresia=="Black"){
+        if (membresia==1){
         cout << "el cliente tiene una tarjeta BLACK"<< endl << "el limite mensual de su tarjeta es de: $250.000"<<endl;
-        } else if (membresia=="oro"|| membresia=="ORO" || membresia=="Oro"){
+        } else if (membresia==2){
             cout << "el cliente tiene una tarjeta ORO"<< endl << "el limite mensual de su tarjeta es de: $50.000"<<endl;
-        } else if (membresia=="plata"|| membresia=="PLATA" || membresia=="Plata"){
+        } else if (membresia==3){
             cout << "el cliente tiene una tarjeta PLATA"<< endl << "el limite mensual de su tarjeta es de: $25.000"<<endl;
         }
     } else if (estado == 0) {

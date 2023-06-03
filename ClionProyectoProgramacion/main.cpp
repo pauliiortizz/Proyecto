@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <fstream>
 #pragma once
 using namespace std;
 
@@ -32,8 +32,8 @@ void validarFechas(){
 }
 
 void cargarcliente(Cliente *clientes) {
-    string cnombre, capellido, cmembresia;
-    int cnumcliente, cestado, cantiguedad;
+    string cnombre, capellido;
+    int cnumcliente, cestado, cantiguedad, cmembresia;
     float csaldo;
     for (int i = 0; i < 100; i++) {
         if (clientes[i].getantiguedad() == -1) {
@@ -48,17 +48,21 @@ void cargarcliente(Cliente *clientes) {
                 cout << "Ingrese un estado valido!! 1 para activo, 0 para inactivo" << endl << "ESTADO: ";
                 cin >> cestado;
             }
-            cout << "MEMBRESIA (ingrese si el cliente es 'BLACK', 'ORO', 'PLATA'): ";
-            cin >> cmembresia;
-            while (cmembresia != "Black" || cmembresia != "BLACK" || cmembresia != "black" || cmembresia != "ORO" || cmembresia != "oro" || cmembresia != "Oro" || cmembresia != "PLATA" || cmembresia != "Plata" || cmembresia != "plata") {
-                cout << "ingrese una membresia valida" << endl << "MEMBRESIA: ";
-                cin >> cmembresia;
-            }
             cout << "ANTIGUEDAD (ingrese el anio en el que creo la cuenta): ";
             cin >> cantiguedad;
             while (cantiguedad <= 1900 || cantiguedad > 2023) {
                 cout << "Ingrese un anio valido!!" << endl << "ANTIGUEDAD: ";
                 cin >> cantiguedad;
+            }
+            cout << "MEMBRESIA (ingrese 1 para BLACK, 2 para ORO y 3 para PLATA): ";
+            cin >> cmembresia;
+            while (cmembresia != 1 && cmembresia != 2 && cmembresia != 3) {
+                cout << "Ingrese una numero de membresia valido" << endl << "MEMBRESIA: ";
+                cin >> cmembresia;
+            }
+            while (cmembresia==1 && cantiguedad>2019){
+                cout << "el cliente debe tener una antiguedad mayor a tres anios para ser BLACK"<<endl<<"Ingrese una numero de membresia valido: ";
+                cin>>cmembresia;
             }
             cout << "SALDO: ";
             cin >> csaldo;
@@ -77,6 +81,10 @@ void cambiarestado(Cliente *clientes) {
     int i;
     cout << "Ingrese el numero del cliente al que le quiere cambiar su estado: ";
     cin >> i;
+    while(clientes[i].getantiguedad()==-1 || i>=100 || i<0){
+        cout<< "el cliente ingresado no existe"<<endl<< "ingrese el numero de cliente correctamente: ";
+        cin >> i;
+    }
     cout << "Se le cambiara el estado actual ";
     if (clientes[i].getestado() == 1) {
         cout << "(Activo)";
@@ -90,6 +98,42 @@ void cambiarestado(Cliente *clientes) {
         cout << "NUEVO ESTADO: Activo" << endl;
     } else if (clientes[i].getestado() == 0) {
         cout << "NUEVO ESTADO: Inactivo" << endl;
+    }
+}
+
+void cambiarmembresia (Cliente *clientes) {
+    int i, opc;
+    cout << "Ingrese el numero del cliente al que le quiere cambiar su membresia: ";
+    cin >> i;
+    while(clientes[i].getantiguedad()==-1 || i>=100 || i<0){
+        cout<< "el cliente ingresado no existe"<<endl<< "ingrese el numero de cliente correctamente: ";
+        cin >> i;
+    }
+    cout << "Membresia actual de " << clientes[i].getapellido() << ", " << clientes[i].getnombre() << ": ";
+    if (clientes[i].getmembresia() == 1) {
+        cout << "BLACK";
+    } else if (clientes[i].getmembresia() == 2) {
+        cout << "ORO";
+    }  else if (clientes[i].getmembresia() == 3) {
+        cout << "PLATA";
+    }
+    cout << "Ingrese 1 para cambiarlo a BLACK, 2 para ORO y 3 para PLATA: ";
+    cin >>opc;
+    while (opc != 1 && opc != 2 && opc != 3) {
+        cout << "Ingrese una numero de membresia valido" << endl << "MEMBRESIA: ";
+        cin >> opc;
+    }
+    while (opc==1 && clientes[i].getantiguedad()>2019){
+        cout << "el cliente debe tener una antiguedad mayor a tres anios para ser BLACK"<<endl<<"Ingrese una numero de membresia valido: ";
+        cin>>opc;
+    }
+    clientes[i].setmembresia(opc);
+    if (clientes[i].getmembresia()==1){
+        cout << "el cliente se cambio a la membresia BLACK exitosamente"<< endl << "el limite mensual de su tarjeta es de: $250.000"<<endl;
+    } else if (clientes[i].getmembresia()==2){
+        cout << "el cliente se cambio a la membresia ORO exitosamente"<< endl << "el limite mensual de su tarjeta es de: $50.000"<<endl;
+    } else if (clientes[i].getmembresia()==3){
+        cout << "el cliente se cambio a la membresia PLATA exitosamente"<< endl << "el limite mensual de su tarjeta es de: $25.000"<<endl;
     }
 }
 
@@ -111,8 +155,17 @@ void mostrarUNcliente(Cliente *clientes) {
         cout<< "el cliente ingresado no existe"<<endl<< "ingrese el numero de cliente que quiere ver: ";
         cin >> i;
     }
-    clientes[i].imprimircliente();
+
+    ofstream archivo;
+    archivo.open("ConsultaCliente.txt");
+    //Encabezados de cada columna
+    archivo << "Numero de cliente" << "\t" << "Nombre"<< "\t" << "Apellido" << "\t" << "Saldo actual" << "\t" << "Tipo de membresia" << "\t" << "Antiguedad" << "\t" << "Estado" << "\n";
+    //Filas de datos
+    archivo << clientes[i].getnumcliente() << "\t\t" << clientes[i].getnombre() << "\t\t" << clientes[i].getapellido() << "\t\t" << clientes[i].getsaldo()<< "\t\t" << clientes[i].getmembresia()<< "\t\t" << clientes[i].getantiguedad()<< "\t\t" << clientes[i].getestado() << "\n";
     cout << endl;
+    archivo.close();
+    ifstream fileloaded;
+    cout << "Se genero y guardo el archivo ConsultaCliente.txt" << endl;
 }
 
 int extraccion(Cliente *clientes) {
@@ -202,14 +255,63 @@ void mostrartransacciones(Cliente *clientes) {
         }
     }
 
+void transaccionesmeses(Cliente *clientes) {
+    float cinmonto;
+    int cinnumtransaccion, cindia, cinmes, cinanio, i, j;
+    cout << "Ingrese el numero de cliente del cual desea ver sus transacciones: ";
+    cin >> i;
+    while(clientes[i].getantiguedad()==-1 || i>=100 || i<0){
+        cout<< "el cliente ingresado no existe"<<endl<< "ingrese nuevamente el numero de cliente: ";
+        cin >> i;
+    }
+    clientes[i].deposito(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
+    clientes[i].extraccion(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
+
+    for ( j = 0; j < 100; j++) {
+        if (clientes[i].transacciones[j].getanio() < 1) {
+            clientes[i].transacciones[j].imprimirtransacciones();
+        }
+        cout << endl;
+        break;
+    }
+}
+
+void transaccionesaño(Cliente *clientes) {
+    float cinmonto;
+    int cinnumtransaccion, cindia, cinmes, cinanio, i, j;
+    cout << "Ingrese el numero de cliente del cual desea ver sus transacciones: ";
+    cin >> i;
+    while(clientes[i].getantiguedad()==-1 || i>=100 || i<0){
+        cout<< "el cliente ingresado no existe"<<endl<< "ingrese nuevamente el numero de cliente: ";
+        cin >> i;
+    }
+    clientes[i].deposito(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
+    clientes[i].extraccion(cinnumtransaccion, cinmonto, cindia, cinmes, cinanio);
+
+    cout << "Anio: ";
+    cin >> cinanio;
+    while (cinanio < 1950 || cinanio > 2023){
+        cout << "El anio ingresado no es valido. \n";
+        cout << "Anio: ";
+        cin >> cinanio;
+    }
+    for ( j = 0; j < 100; j++) {
+        if (clientes[i].transacciones[j].getanio() == cinanio) {
+            clientes[i].transacciones[j].imprimirtransacciones();
+        }
+        cout << endl;
+        break;
+    }
+}
+
 
 int main() {
     string cincategoria;
     string cinnombre, cinapellido;
-    int opc;
+    int opc, opc2;
 
     Cliente clientes[100];
-    clientes[0] = Cliente(0, "juan", "perez", 1, 1980, 40, "black");
+    clientes[0] = Cliente(0, "juan", "perez", 1, 1980, 40, 1);
     Transaccion t3(1, 100, 1, 1, 2001);
 
     while (1) {
@@ -253,7 +355,23 @@ int main() {
                 break;
             case 7:
                 cout << "TRANSACCIONES DE UN CLIENTE" << endl;
-                mostrartransacciones(clientes);
+                cout << "1) Por periodo de seis meses" << endl;
+                cout << "2) Por año" << endl;
+                cout << "3) Total" << endl;
+                cout << "Ingrese Opcion" << endl;
+                cin >> opc2;
+
+                switch (opc2){
+                    case 1:
+                        transaccionesmeses(clientes);
+                        break;
+                    case 2:
+                        transaccionesaño(clientes);
+                        break;
+                    case 3:
+                        mostrartransacciones(clientes);
+                        break;
+                }
                 break;
             case 8:
                 cout << "El programa se cerrara" << endl;
