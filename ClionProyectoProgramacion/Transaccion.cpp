@@ -2,10 +2,8 @@
 // Created by sofis on 5/21/2023.
 //
 #include <iostream>
-
-using namespace std;
 #include "Transaccion.h"
-#pragma once
+using namespace std;
 
 void Transaccion::setnumtransaccion(int _numtransaccion) {
     numtransaccion = _numtransaccion;

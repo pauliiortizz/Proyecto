@@ -1,0 +1,4 @@
+ Num cliente |       Nombre |     Apellido | Saldo actual |    Membresia |   Antiguedad |       Estado | 
+-------------+--------------+--------------------------+--------------+--------------+--------------+-
+           0 |         juan |        perez |         3500 |            1 |         1980 |            1
+           1 |         sofi |          cpp |         1500 |            1 |         1980 |            1

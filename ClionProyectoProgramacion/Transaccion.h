@@ -2,9 +2,8 @@
 // Created by sofis on 5/21/2023.
 //
 #include <iostream>
-
 using namespace std;
-#pragma once
+
 
 class Transaccion {
 protected:
