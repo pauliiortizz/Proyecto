@@ -155,27 +155,30 @@ void cambiarmembresia(Cliente *clientes) {
 }
 
 void mostrarclientes(Cliente *clientes) {
+    int i;
     ofstream archivo;
     archivo.open("Clientes.txt");
     //encabezados
-    archivo << setw(12) << "Num cliente" << " | " << setw(12) << "Nombre" << " | " << setw(12) << "Apellido" << " | "
-            << setw(12) << "Saldo actual" << " | " << setw(12) << "Membresia" << " | " << setw(12) << "Antiguedad"
-            << " | " << setw(12) << "Estado" << " | " << endl;
-    archivo << setw(12) << setfill('-') << "" << "-+-" << setw(12) << setfill('-') << "" << "-+-" << setw(12)
-            << setfill('-') << "" << setw(12) << setfill('-') << "" << "-+-" << setw(12) << setfill('-') << "" << "-+-"
-            << setw(12) << setfill('-') << "" << "-+-" << setw(12) << setfill('-') << "" << "-+-" << endl;
-    archivo << setfill(' ');
-    for (int i = 0; i < 100; i++) {
+    archivo << "numcliente" << ", " << "nombre" << ", " << "apellido" << ", "
+            << "saldo" << ", " << "membresia" << ", " << "antiguedad"
+            << ", " << "estado" << endl;
+    for (i = 0; i < 100; i++) {
         if (clientes[i].getantiguedad() != -1) {
             //datos
-            archivo << setw(12) << clientes[i].getnumcliente() << " | " << setw(12) << clientes[i].getnombre() << " | "
-                    << setw(12) << clientes[i].getapellido() << " | " << setw(12) << clientes[i].getsaldo() << " | "
-                    << setw(12) << clientes[i].getmembresia() << " | " << setw(12) << clientes[i].getantiguedad()
-                    << " | " << setw(12) << clientes[i].getestado() << endl;
+            archivo << clientes[i].getnumcliente() << ", " << clientes[i].getnombre() << ", "
+                    << clientes[i].getapellido() << ", " << clientes[i].getsaldo() << ", "
+                    << clientes[i].getmembresia() << ", " << clientes[i].getantiguedad()
+                    << ", " << clientes[i].getestado() << endl;
         }
     }
     archivo.close();
     ifstream fileloaded;
+    for (i=0;i<100;i++){
+        if (clientes[i].getantiguedad() != -1) {
+            clientes[i].imprimircliente();
+            cout<<"-----------------"<<endl;
+        }
+    }
     cout << "Se genero y guardo el archivo Clientes.txt" << endl;
 }
 
@@ -231,32 +234,36 @@ void depositar(Cliente *clientes) {
 }
 
 void mostrartransacciones(Cliente *clientes) {
+    int i, j;
     ofstream archivo;
     archivo.open("Transacciones.txt");
     //encabezados
-    archivo << setw(12) << "Num cliente" << " | " << setw(12) << "Num Transaccion" << " | " << setw(12) << "Cantidad"
-            << " | " << setw(12) << "Tipo" << " | " << setw(12) << "Dia" << " | " << setw(12) << "Mes" << " | "
-            << setw(12) << "Anio" << " | " << endl;
-    archivo << setw(12) << setfill('-') << "" << "-+-" << setw(12) << setfill('-') << "" << "-+-" << setw(12)
-            << setfill('-') << "" << setw(12) << setfill('-') << "" << "-+-" << setw(12) << setfill('-') << "" << "-+-"
-            << setw(12) << setfill('-') << "" << "-+-" << setw(12) << setfill('-') << "" << "-+-" << endl;
-    archivo << setfill(' ');
-    for (int i = 0; i < 100; i++) {
-        for (int j = 0; j < 100; j++) {
+    archivo << "numcliente" << ", "<< "numtransaccion" << ", " << "cantidad"
+            << ", " << "tipo" << ", " << "dia" << ", " << "mes" << ", " << "anio" <<endl;
+    for (i = 0; i < 100; i++) {
+        for (j = 0; j < 100; j++) {
             //datos
             if (clientes[i].transacciones[j].getanio() != -1) {
-                archivo << setw(12) << clientes[i].getnumcliente() << setw(12)
-                        << clientes[i].transacciones[j].getnumtransaccion() << " | " << setw(12)
-                        << clientes[i].transacciones[j].getmonto() << " | " << setw(12)
-                        << clientes[i].transacciones[j].getcategoria() << " | " << setw(12)
-                        << clientes[i].transacciones[j].getdia() << " | " << setw(12)
-                        << clientes[i].transacciones[j].getmes() << " | " << setw(12)
-                        << clientes[i].transacciones[j].getanio() << " | " << endl;
+                archivo << clientes[i].getnumcliente() << ", "
+                        << clientes[i].transacciones[j].getnumtransaccion() << ", "
+                        << clientes[i].transacciones[j].getmonto() << ", "
+                        << clientes[i].transacciones[j].getcategoria() << ", "
+                        << clientes[i].transacciones[j].getdia() << ", "
+                        << clientes[i].transacciones[j].getmes() << ", "
+                        << clientes[i].transacciones[j].getanio() << ", " << endl;
             }
         }
     }
     archivo.close();
     ifstream fileloaded;
+    for(i=0;i<100;i++){
+        cout<< "NUMERO DE CLIENTE: "<<clientes[i].getnumcliente()<<endl;
+        for(j=0;j<100;j++){
+            clientes[i].transacciones[j].imprimirtransacciones();
+            cout<<"-----"<<endl;
+        }
+        cout<<"---------------------------"<<endl;
+    }
     cout << "Se genero y guardo el archivo Transacciones.txt" << endl;
 }
 
@@ -304,7 +311,6 @@ void transaccionesanio(Cliente *clientes) {
     }
 }
 
-
 void transaccioncliente(Cliente *clientes) {
     int i, j, band=0;
     cout << "Ingrese el numero de cliente que desea ver la transaccion: ";
@@ -326,12 +332,55 @@ void transaccioncliente(Cliente *clientes) {
     }
 }
 
+void leerarchivo (Cliente *clientes) {
+    ifstream archivo ("Clientes.txt");
+    string linea, dato;
+    int numero;
+    stringstream s;
+    int index = 0, index_dato = 0, i=0;
+    while (getline(archivo, linea, '\n')){
+         s.str(linea);
+        while (getline(s,dato, ',')) {
+            // INGRESAR A ARREGLO ETC
+            switch (index_dato) {
+                case 0:
+                    ::sscanf(dato, "%d", numero);
+                    clientes[i].setnumcliente(numero);
+                    break;
+                case 1:
+                    clientes[i].setnombre(dato);
+                    break;
+                case 2:
+                    clientes[i].setapellido(dato);
+                    break;
+                case 3:
+                    clientes[i].setsaldo(dato);
+                    break;
+                case 4:
+                    clientes[i].setmembresia(dato);
+                    break;
+                case 5:
+                    clientes[i].setantiguedad()
+
+            }
+            index_dato++;
+        }
+        clientes[i] = c;
+        i++;
+        s.clear();
+    }
+}
+
+
+void leerarchivoT()
+
 int main() {
     string cincategoria;
     string cinnombre, cinapellido;
     int opc, opc2;
 
     Cliente clientes[100];
+    leerarchivo(clientes);
     clientes[0] = Cliente(0, "juan", "perez", 1, 1980, 4000, 1);
     clientes[1] = Cliente(1, "sofi", "cpp", 1, 1980, 2000, 1);
 

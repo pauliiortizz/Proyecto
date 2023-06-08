@@ -1,4 +1,7 @@
- Num cliente |       Nombre |     Apellido | Saldo actual |    Membresia |   Antiguedad |       Estado | 
--------------+--------------+--------------------------+--------------+--------------+--------------+-
-           0 |         juan |        perez |         3500 |            1 |         1980 |            1
-           1 |         sofi |          cpp |         1500 |            1 |         1980 |            1
+nro_cliente, nombre, apellido, saldo, membresia, antiguedad, estado
+1, Juan, Degiovanni, 1000, plata, 2003, baja
+2, Pedro, Laciar, 5000, oro, 2020, activo
+3, Julio, Gutierrez, 10000, black, 2007, activo
+4, Sofia, Oliveto, 11000, black, 2000, activo
+5, Margarita, DeMarcos, 9000, oro, 2005, activo
+6, Paulina, Ortiz, 6000, oro, 2003, activo
